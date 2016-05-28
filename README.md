@@ -29,15 +29,15 @@ USAGE
 -----
 
 You can schedule list of images to be downloaded from url's list pages.
-Another way to schedule images' list is set certain files in root folder with url per line as params
+Another way to schedule images' list is set certain files in root folder with url per line as optional params
 
 ```
-./bot shedule [file1] [file2] [fileN]
+./bot schedule [file1] [file2] [fileN]
 ```
 
 You can download scheduled images and save to local `/storage` folder.
 Optional you can choose certain queues. If you avoid it, all active queues would be used
 
 ```
-./bot parse/download [download] [failed] [randomTube]
+./bot download [download] [failed] [randomTube]
 ```
