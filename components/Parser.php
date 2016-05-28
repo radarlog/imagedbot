@@ -99,7 +99,10 @@ class Parser extends Component
 
         foreach ($html->find('img') as $img) {
             if ($img->src) {
-                $images[] = $this->rel2abs($img->src, $this->baseUrl);
+                $absUrl = $this->rel2abs($img->src, $this->baseUrl);
+                if ($absUrl !== false) {
+                    $images[] = $absUrl;
+                }
             }
         }
 
@@ -113,6 +116,12 @@ class Parser extends Component
      */
     protected function rel2abs($relUrl, $baseUrl)
     {
+        //absolute url with scheme
+        if (strpos($relUrl, 'data:image/') === 0) {
+            //TODO: handle
+            return false;
+        }
+
         $base = parse_url($baseUrl);
         $scheme = $base['scheme'] . '://';
         $host = $base['host'];
@@ -141,8 +150,8 @@ class Parser extends Component
 
         //relative url begins with ../
         if (strpos($relUrl, '../') === 0) {
-            //TODO and notice double!
-            return $prefix . $relUrl;
+            //TODO handle and keep in mind possibility of multiple occurrences!
+            return false;
         }
 
         //simple relative url
