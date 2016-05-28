@@ -28,15 +28,16 @@ return [
 USAGE
 -----
 
-You can schedule list of images to be downloaded from init url page:
+You can schedule list of images to be downloaded from url's list pages.
+Another way to schedule images' list is set certain files in root folder with url per line as params
 
 ```
-./bot shedule
+./bot shedule [file1] [file2] [fileN]
 ```
 
 You can download scheduled images and save to local `/storage` folder.
-Optional you can choose queues. If you avoid it, all queues would be used
+Optional you can choose certain queues. If you avoid it, all active queues would be used
 
 ```
-./bot parse/download [download] [failed]
+./bot parse/download [download] [failed] [randomTube]
 ```

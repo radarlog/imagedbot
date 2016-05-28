@@ -16,6 +16,9 @@ class DownloadController extends ConsoleController
 {
     CONST FAILED_TUBE = 'failed';
 
+    /**
+     * @inheritdoc
+     */
     public $defaultAction = 'worker';
 
     /**
@@ -28,7 +31,6 @@ class DownloadController extends ConsoleController
      *
      * @see ConsoleController
      */
-
     public function actionWorker($job)
     {
         $this->url = $job->data;
@@ -56,6 +58,10 @@ class DownloadController extends ConsoleController
         return self::DELETE; //remove from queue
     }
 
+    /**
+     * @param $fileContent
+     * @return bool
+     */
     protected function isImage($fileContent)
     {
         $info = new finfo(FILEINFO_MIME_TYPE); // return mime type
@@ -63,6 +69,9 @@ class DownloadController extends ConsoleController
         return strpos($mimeType, 'image/') === 0;
     }
 
+    /**
+     * @param $fileContent
+     */
     protected function save($fileContent)
     {
         $saved = file_put_contents($this->fullPath, $fileContent, LOCK_EX);
@@ -74,6 +83,9 @@ class DownloadController extends ConsoleController
         }
     }
 
+    /**
+     * @return string
+     */
     protected function getFullPath()
     {
         $fileName = basename($this->url);
