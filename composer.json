@@ -1,0 +1,32 @@
+{
+    "name": "radarlog/imagedbot",
+    "description": "A command line Bot, which downloads images from the single page",
+    "keywords": [
+        "queue",
+        "yii2",
+        "beanstalkd",
+        "bot",
+        "image",
+        "crawler",
+        "parser"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ilian Ranguelov",
+            "email": "me@radarlog.net"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "yiisoft/yii2": "~2.0",
+        "davidpersson/beanstalk": "~2.0",
+        "shark/simple_html_dom": "dev-master",
+        "php-curl-class/php-curl-class": "~4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "radarlog\\imagedbot\\": "/"
+        }
+    }
+}
