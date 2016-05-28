@@ -14,11 +14,14 @@ composer install
 
 CONFIGURATION
 -------------
-Edit the file `url.php` with init url, for example:
+Edit the file `url.php` with url's list, for example:
 
 ```php
 return [
-    'initUrl' => 'https://twitter.com/'
+    'urlList' => [
+        'https://twitter.com/',
+        'http://flickr.com'
+    ]
 ];
 ```
 

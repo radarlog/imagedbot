@@ -1,5 +1,8 @@
 <?php
 
 return [
-    'initUrl' => 'https://twitter.com/'
+    'urlList' => [
+        'https://twitter.com/',
+        'http://flickr.com',
+    ]
 ];

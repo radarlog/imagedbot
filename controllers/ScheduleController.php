@@ -24,12 +24,18 @@ class ScheduleController extends Controller
 
     public function actionWorker()
     {
-        $url = Yii::$app->params['initUrl'];
+        $urls = Yii::$app->params['urlList'];
 
         try {
             /* @var $parser \components\Parser */
             $parser = Yii::$app->parser;
-            $this->_imagesList = $parser->run($url);
+            foreach ($urls as $url) {
+                $this->stdout("Querying images from $url\n");
+                $this->_imagesList = array_merge(
+                    $this->_imagesList,
+                    $parser->run($url)
+                );
+            }
         } catch (ParserException $e) {
             $this->stderr('Parser error: ' . $e->getMessage() . "\n");
         }

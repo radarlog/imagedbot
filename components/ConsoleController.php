@@ -45,7 +45,8 @@ class ConsoleController extends Controller
                         break;
                     case self::FAILED:
                         $beanstalk->delete($job->id); //delete old job
-                        $beanstalk->put($job->data, self::FAILED); //put again as new job
+                        //put again as new job and slowdown
+                        $beanstalk->put($job->data, self::FAILED, $beanstalk::DEFAULT_PRIORITY, 10);
                         break;
                     //should not get here
                     //do not lost unprocessed job and save it as buried;

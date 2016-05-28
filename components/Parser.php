@@ -52,6 +52,7 @@ class Parser extends Component
         self::$curl->setTimeout(10);
         self::$curl->setOpt(CURLOPT_AUTOREFERER, true);
         self::$curl->setOpt(CURLOPT_ENCODING, 'gzip');
+        self::$curl->setOpt(CURLOPT_FOLLOWLOCATION, true);
 
         self::$curl->setHeader('Expect', '');
 
